@@ -1,8 +1,8 @@
 <?php
 
-define("WEB_TITLE","Finery Trust PLC"); // Change Bank Name
-define("WEB_URL","https://finerytrust.com/"); // Change No "/" Ending splash
-define("WEB_EMAIL","info@finerytrust.com"); // Change Your Website Email
+define("WEB_TITLE","Guaranty Union PLC"); // Change Bank Name
+define("WEB_URL","https://guarantyunion.com"); // Change No "/" Ending splash
+define("WEB_EMAIL","contact@guarantyunion.com"); // Change Your Website Email
 
 $web_url = WEB_URL;
 
