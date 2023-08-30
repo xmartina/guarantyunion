@@ -40,7 +40,7 @@ require_once("include/loginFunction.php");
 		<!-- End Banner Section -->
 
 		<!-- CTA Section Start -->
-		<div class="cta-section bg-warning">
+		<div class="cta-section" style="background:#FF6600;">
 			<div class="auto-container">
 				<div class="row align-items-center">
 					<div class="col-lg-7">
