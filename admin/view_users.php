@@ -331,7 +331,7 @@ die;
 //                                                                    echo "<pre>";
 //                                                                    print_r($_POST)
 //                                                                    ?>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Full Name" value="<?= $row['acct_no'] ?>" name="acct_no" >
+                                                                    <input type="text" class="form-control mb-4"  placeholder="Account Number" value="<?= $row['acct_no'] ?>" name="acct_no" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
@@ -359,7 +359,7 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">Email</label>
-                                                                    <input type="text" class="form-control mb-4" id="fullName" placeholder="Full Name" value="<?= $row['acct_email'] ?>" name="acct_email" >
+                                                                    <input type="text" class="form-control mb-4" id="fullName" placeholder="Email" value="<?= $row['acct_email'] ?>" name="acct_email" >
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
@@ -380,7 +380,7 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">Phone Number</label>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Date Of Birth" value="<?= $row['acct_phone'] ?>" name="acct_phone">
+                                                                    <input type="text" class="form-control mb-4"  placeholder="Phone Number" value="<?= $row['acct_phone'] ?>" name="acct_phone">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -390,13 +390,13 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="fullName">COT code</label>
-                                                                    <input type="text" class="form-control mb-4"  placeholder="Ocuppation" value="<?= $row['acct_cot'] ?>" name="acct_cot">
+                                                                    <input type="text" class="form-control mb-4"  placeholder="COT code" value="<?= $row['acct_cot'] ?>" name="acct_cot">
                                                                 </div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">IMF code</label>
-                                                                    <input type="text" class="form-control mb-4" placeholder="Date Of Birth" value="<?= $row['acct_imf'] ?>" name="acct_imf">
+                                                                    <input type="text" class="form-control mb-4" placeholder="IMF code" value="<?= $row['acct_imf'] ?>" name="acct_imf">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -417,7 +417,7 @@ die;
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <label for="profession">Marital Status</label>
-                                                                    <input type="text" class="form-control mb-4 text-capitalize" id="profession" placeholder="Date Of Birth" value="<?= $row['marital_status'] ?>" name="marital_status" >
+                                                                    <input type="text" class="form-control mb-4 text-capitalize" id="profession" placeholder="Marital Status" value="<?= $row['marital_status'] ?>" name="marital_status" >
                                                                 </div>
                                                             </div>
                                                         </div>

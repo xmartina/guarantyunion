@@ -11,7 +11,12 @@ $stmt->execute([
 ]);
 $wire_trans = $stmt->fetch(PDO::FETCH_ASSOC);
 
-
+//$transDBMsg = "SELECT * FROM wire_transfer WHERE acct_id =:acct_id ORDER BY wire_id DESC LIMIT 1";
+//$stmt = $conn->prepare($transDBMsg);
+//$stmt->execute([
+//    'acct_id'=>$user_id
+//]);
+//$transMsg = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
 $status = wireStatus($wire_trans);
@@ -42,9 +47,10 @@ $status = wireStatus($wire_trans);
                                         $acct_swift = $wire_trans['acct_swift'];
                                         $acct_routing = $wire_trans['acct_routing'];
                                         $acct_type = $wire_trans['acct_type'];
+                                        $transMsg = $wire_trans['transMsg'];
 
                                         $APP_NAME = $pageTitle;
-                                        $message = $sendMail->UserWireTransfer($currency, $amount, $fullName, $bank_name,$acct_name, $acct_number,$acct_country, $acct_swift, $acct_routing, $acct_type, $APP_NAME);
+                                        $message = $sendMail->UserWireTransfer($currency, $amount, $fullName, $bank_name,$acct_name, $acct_number,$acct_country, $acct_swift, $acct_routing, $acct_type, $transMsg, $APP_NAME);
                                         // User Email
                                         $subject = "Wire Transfer - $APP_NAME";
                                         $email_message->send_mail($email, $message, $subject);
@@ -60,7 +66,8 @@ $status = wireStatus($wire_trans);
                             </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center text-info text-uppercase">DEAR, <?= ucwords($fullName)?> YOUR TRANSFER TO  <span class="text-uppercase"><?= $wire_trans['acct_name']?></span> IS BEEN PROCESSED
+                                        <p class="text-center text-info text-uppercase">DEAR, <?= ucwords($fullName)?> <?php $transMsg = $wire_trans['transMsg']; ?>
+<!--                                            YOUR TRANSFER TO  <span class="text-uppercase">--><?php //= $wire_trans['acct_name']?><!--</span> IS BEEN PROCESSED-->
                                         
                                          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
       100%

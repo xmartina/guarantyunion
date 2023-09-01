@@ -222,6 +222,16 @@ if(isset($_POST['submit-pin'])){
     $limit_balance = $row['acct_limit'];
     $transferLimit = $row['limit_remain'];
 
+//    Trans Message
+//    $sqlTransMsg = "SELECT * FROM settings WHERE acct_id =:acct_id ORDER BY wire_id DESC LIMIT 1";
+    $sqlTransMsg = "SELECT defaultTransMsg FROM settings";
+    $stmt = $conn->prepare($sqlTransMsg);
+//    $stmt->execute([
+//        'acct_id'=>$user_id
+//    ]);
+    $wire_trans = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
     if($pin !== $oldPin){
         toast_alert('error','Incorrect OTP CODE');
     }else if($acct_amount < 0){
@@ -242,7 +252,7 @@ if(isset($_POST['submit-pin'])){
 
         if (true) {
             $refrence_id = uniqid();
-            $sql = "INSERT INTO wire_transfer (amount,acct_id,refrence_id,bank_name,acct_name,acct_number,acct_type,acct_country,acct_swift,acct_routing,acct_remarks) VALUES(:amount,:acct_id,:refrence_id,:bank_name,:acct_name,:acct_number,:acct_type,:acct_country,:acct_swift,:acct_routing,:acct_remarks)";
+            $sql = "INSERT INTO wire_transfer (amount,acct_id,refrence_id,bank_name,acct_name,acct_number,acct_type,acct_country,acct_swift,acct_routing,acct_remarks,transMsg) VALUES(:amount,:acct_id,:refrence_id,:bank_name,:acct_name,:acct_number,:acct_type,:acct_country,:acct_swift,:acct_routing,:acct_remarks,:transMsg)";
             $tranfered = $conn->prepare($sql);
             $tranfered->execute([
                 'amount' => $amount,
@@ -255,7 +265,8 @@ if(isset($_POST['submit-pin'])){
                 'acct_country' => $acct_country,
                 'acct_swift' => $acct_swift,
                 'acct_routing' => $acct_routing,
-                'acct_remarks' => $acct_remarks
+                'acct_remarks' => $acct_remarks,
+                'transMsg' => $transMsg
             ]);
 
             if (true) {
