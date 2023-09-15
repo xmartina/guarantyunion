@@ -225,13 +225,22 @@ if(isset($_POST['submit-pin'])){
 
 //    Trans Message
 //    $sqlTransMsg = "SELECT * FROM settings WHERE acct_id =:acct_id ORDER BY wire_id DESC LIMIT 1";
-    $sqlTransMsg = "SELECT * FROM users WHERE acct_id =:acct_id";
+    $sqlTransMsg = "SELECT transMsg FROM users WHERE acct_id = :acct_id";
     $transMsg_data = $conn->prepare($sqlTransMsg);
     $transMsg_data->execute([
-        'acct_id'=>$user_id
+        'acct_id' => $user_id
     ]);
+
+    // Fetch the result
     $trans_Msg = $transMsg_data->fetch(PDO::FETCH_ASSOC);
-    $transMsg = $trans_Msg['transMsg'];
+
+    // Check if the result exists before accessing 'transMsg'
+    if ($trans_Msg !== false && isset($trans_Msg['transMsg'])) {
+        $transMsg = $trans_Msg['transMsg'];
+    } else {
+        // Handle the case when 'transMsg' is not found or is empty
+        $transMsg = "Your transaction is being processed"; // You can provide a default value or error message here
+    }
 //    $wire_trans = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
