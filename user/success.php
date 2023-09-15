@@ -66,7 +66,7 @@ $status = wireStatus($wire_trans);
                             </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p class="text-center text-info text-uppercase">DEAR, <?= ucwords($fullName)?> <?php $transMsg = $wire_trans['transMsg']; ?>
+                                        <p class="text-center text-info text-uppercase">DEAR, <?= ucwords($fullName)?> <?= $transMsg ?>
 <!--                                            YOUR TRANSFER TO  <span class="text-uppercase">--><?php //= $wire_trans['acct_name']?><!--</span> IS BEEN PROCESSED-->
                                         
                                          <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:100%">
