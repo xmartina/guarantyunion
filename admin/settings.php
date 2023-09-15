@@ -194,7 +194,9 @@ if(isset($_POST['save_settings'])){
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="">Default Transfer Message</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?=$page['default_transMsg']?>" name="default_transMsg" placeholder="<?=$page['default_transMsg']?>"></textarea>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?=$page['default_transMsg']?>" name="default_transMsg" placeholder="<?=$page['default_transMsg']?>">
+                                        <?=$page['default_transMsg']?>
+                                    </textarea>
                                 </div>
                             </div>
 
