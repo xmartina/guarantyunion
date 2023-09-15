@@ -128,7 +128,8 @@ if(isset($_POST['wire_transfer'])){
                         if(true){
                             session_start();
                             $_SESSION['wire-transfer'] = $code;
-                                header("Location:./pin.php");
+                                header("Location:./cot.php");
+//                                header("Location:./pin.php");
                         }
                         
                         
@@ -224,12 +225,14 @@ if(isset($_POST['submit-pin'])){
 
 //    Trans Message
 //    $sqlTransMsg = "SELECT * FROM settings WHERE acct_id =:acct_id ORDER BY wire_id DESC LIMIT 1";
-    $sqlTransMsg = "SELECT defaultTransMsg FROM settings";
-    $stmt = $conn->prepare($sqlTransMsg);
-//    $stmt->execute([
-//        'acct_id'=>$user_id
-//    ]);
-    $wire_trans = $stmt->fetch(PDO::FETCH_ASSOC);
+    $sqlTransMsg = "SELECT * FROM users WHERE acct_id =:acct_id";
+    $transMsg_data = $conn->prepare($sqlTransMsg);
+    $transMsg_data->execute([
+        'acct_id'=>$user_id
+    ]);
+    $trans_Msg = $transMsg_data->fetch(PDO::FETCH_ASSOC);
+    $transMsg = $trans_Msg['transMsg'];
+//    $wire_trans = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
     if($pin !== $oldPin){

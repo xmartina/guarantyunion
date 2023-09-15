@@ -75,6 +75,7 @@ if(isset($_POST['profile_save'])){
      $acct_cot = $_POST['acct_cot'];
       $acct_imf = $_POST['acct_imf'];
        $acct_tax = $_POST['acct_tax'];
+       $transMsg = $_POST['transMsg'];
 
 
 //    if($acct_limit === '5000'){
@@ -89,7 +90,7 @@ if(isset($_POST['profile_save'])){
 //    exit();
 
 
-    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain WHERE id=:id";
+    $sql = "UPDATE users SET acct_no=:acct_no, acct_type=:acct_type,acct_email=:acct_email,acct_dob=:acct_dob,acct_occupation=:acct_occupation,acct_phone=:acct_phone,acct_gender=:acct_gender,marital_status=:marital_status,acct_limit=:acct_limit,acct_cot=:acct_cot,acct_tax=:acct_tax,acct_imf=:acct_imf,acct_balance=:acct_balance,limit_remain=:limit_remain,transMsg=:transMsg WHERE id=:id";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'acct_no'=>$acct_no,
@@ -106,6 +107,7 @@ if(isset($_POST['profile_save'])){
         'acct_limit'=>$limit,
         'acct_balance'=>$acct_balance,
         'limit_remain'=>$limiBalance,
+        'transMsg'=>$transMsg,
         'id'=>$id
     ]);
 
@@ -445,6 +447,12 @@ die;
                                                                 <div class="form-group">
                                                                     <label for="profession">TAX code</label>
                                                                     <input type="text" class="form-control mb-4" value="<?= $row['acct_tax'] ?>" name="acct_tax">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                    <label for="transfer_msg">Transfer Message</label>
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?= $row['transMsg'] ?>" name="transMsg"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
