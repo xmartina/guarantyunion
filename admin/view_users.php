@@ -452,7 +452,7 @@ die;
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
                                                                     <label for="transfer_msg">Transfer Message</label>
-                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?= $row['transMsg'] ?>" name="transMsg"></textarea>
+                                                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" value="<?= $row['transMsg'] ?>" name="transMsg" placeholder="<?= $row['transMsg'] ?>"></textarea>
                                                                 </div>
                                                             </div>
                                                         </div>
